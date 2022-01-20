@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Library_Management_System_Simple.Models.book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category.catname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publisher.name)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.catname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.publisher.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }, new { @class = "btn btn-warning btn-sm" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }, new { @class = "btn btn-danger btn-sm" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }, new { @class = "btn btn-info btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>
